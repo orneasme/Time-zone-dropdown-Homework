@@ -1,17 +1,22 @@
 function showCityTime(event) {
-  let formattedDate = "H:mm";
+  let formattedDateAU = moment()
+    .tz("Australia/Sydney")
+    .format("dddd, MMMM D, YYYY, hh:mm A");
+  let formattedDateZU = moment()
+    .tz("Zurich")
+    .format("dddd, MMMM D, YYYY, hh:mm A ");
+  let formattedDateBA = moment()
+    .tz("America/Buenos_Aires")
+    .format("dddd, MMMM D, YYYY, hh:mm A ");
+
   if (event.target.value === "Sydney") {
-    alert(
-      moment().tz("Australia/Sydney").format(`it is ${formattedDate} in Sydney`)
-    );
+    alert(`It is ${formattedDateAU} in Sydney`);
   }
   if (event.target.value === "Zürich") {
-    alert(moment().tz("Europe/Zurich").format("dddd, MMMM D, YYYY H:mm "));
+    alert(`It is  ${formattedDateZU} in Zürich`);
   }
   if (event.target.value === "Buenos Aires") {
-    alert(
-      moment().tz("America/Buenos_Aires").format("dddd, MMMM D, YYYY H:mm ")
-    );
+    alert(`It is ${formattedDateBA} in Buenos Aires`);
   }
 }
 
